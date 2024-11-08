@@ -1,0 +1,38 @@
+<div *ngIf="chambres.length" class="universite-list-container">
+  <h2 class="universite-title">Liste des Chambres</h2>
+  <table class="universite-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NumChambre</th>
+        <th>TypeChambre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let chambre of chambres">
+        <td>{{ chambre.idChambre }}</td>
+        <td>{{ chambre.numeroChambre }}</td>
+        <td>{{ chambre.typeC }}</td>
+        <td>
+          <button (click)="deleteChambre(chambre.idChambre)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!chambres.length" class="no-universite-message">
+  <p>Aucune chambre trouvée.</p>
+</div>
+
+<form (submit)="onSubmit()">
+  <label for="idChambre">ID Chambre:</label>
+  <input id="idChambre" [(ngModel)]="newChambre.idChambre" name="idChambre" required />
+
+  <label for="numeroChambre">Num Chambre:</label>
+  <input id="numeroChambre" [(ngModel)]="newChambre.numeroChambre" name="numeroChambre" required />
+
+  <label for="typeC">Type Chambre:</label>
+  <input id="typeC" [(ngModel)]="newChambre.typeC" name="typeC" required />
+
+  <button type="submit">Ajouter Chambre</button>
+</form>
