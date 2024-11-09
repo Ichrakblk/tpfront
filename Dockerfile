@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist/universite-app /usr/share/nginx/html
 
 # Expose the port the app runs on
-EXPOSE 80
+EXPOSE 84
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
